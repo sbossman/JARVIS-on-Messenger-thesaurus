@@ -19,6 +19,7 @@ __all__ = [
     'quote',
     'request',
     'thanks',
+    'thesaurus',
     'time',
     'url',
     'video',

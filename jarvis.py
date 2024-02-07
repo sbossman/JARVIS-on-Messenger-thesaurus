@@ -1,8 +1,12 @@
+import modules
+import modules.tests.test_thesaurus as test_thesaurus
+import modules.src.thesaurus as thesaurus
+"""
 import json
 import os
 
-import requests
-from flask import Flask, request
+# import requests
+# from flask import Flask, request
 
 import config
 import modules
@@ -61,7 +65,28 @@ def webhook():
             return request.args.get('hub.challenge')
         else:
             return 'Error, wrong validation token'
-
-
+"""
+"""
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
+"""
+if __name__ == '__main__':
+    print("Hello world!")
+    test_thesaurus.test_thesaurus()
+
+    user_input = input("Hello, I'm JARVIS, Just A Rather Very Intelligent System! How can I help you?\n")
+    while(True):
+        if(user_input == "Hello"):
+            print("Hello")
+        elif(user_input == "Goodbye" or user_input == "goodbye" or user_input == "bye" or user_input == "exit"):
+            break
+        else:
+            output = thesaurus.process(user_input)
+            if(output['success'] == False):
+                print(output['error_msg'])
+            else:
+                print(output['output'])
+        user_input = input("Is there anything else you would like?\n")
+
+
+
